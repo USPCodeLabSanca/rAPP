@@ -3,6 +3,10 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './component_styles/component_styles'
 
+/*
+Estrelinhas de avaliação (5 estrelas, 4 estrelas, etc)
+*/
+
 const stars = ({maxStars = 5}) =>{
     const [stars,setStars] = useState(0);
 

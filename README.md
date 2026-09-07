@@ -1,3 +1,14 @@
+## SOBRE O APP
+
+Esse é um aplicativo criado pela comunidade CodeLab voltado a repúblicas, que consistirá de três versões:
+
+- 1° Versão: catálogo de repúblicas que permite a comparação entre repúblicas, com a capacidade de buscar, filtrar e contatar repúblicas
+- 2° Versão: contará também com um cronograma anual de eventos em São Carlos. Como muitos são organizados por repúblicas, nada mais justo do que disponibilizá-los à comunidade universitária em um aplicativo para as reps
+- 3° Versão: será a versão final em que cada rep poderá gerenciar seus núcleos em um único app, tornando mais fácil perceber quais necessidades são mais urgentes nas repúblicas, notificações no celular dos núcleos que devem ser contatados, entre outras possibilidades
+
+
+## COMO USAR O APP
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started

@@ -1,10 +1,16 @@
 import {StyleSheet, Text} from 'react-native'
 import  {RFValue}  from "react-native-responsive-fontsize";
 
+/*
+Arquivo de estilização da página Home
+*/
+
 export default StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: '#FFE5B4',
+            backgroundColor: '#FCEFDA',
+            alignItems: 'flex-start',
+            gap: 10,
           },
           titulo: {
             padding: 16,
@@ -14,31 +20,32 @@ export default StyleSheet.create({
             textAlign: 'center',
           },
           container_cards:{
-              minWidth: 300,
+              width: '100%',
               alignItems: 'center',
-              justifyContent: 'space-around',
+              justifyContent: 'flex-start',
               flexWrap: 'wrap',
+              flex: 1,
           },
           input: {
               height: 40,
               minWidth: '40%',
               borderColor: '#ccc',
+              backgroundColor: 'white',
               borderWidth: 1,
-              borderRadius: 8,
+              borderRadius: 20,
               paddingHorizontal: 10,
               fontSize: RFValue(12,680),
           },
           choices:{
-              padding: 16,
+              padding: 10,
               justifyContent: 'space-between',
               flexDirection: 'row',
+              borderWidth: 1,
+              borderColor: '#E6D8BB',
           },
           container_tags:{
-              maxWidth: '70%',
-              height: '10%',
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              flexWrap: 'wrap',
+              paddingHorizontal: 10,
+              alignItems: 'flex-start',
               gap: 8,
           }
     })
