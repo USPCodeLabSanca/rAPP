@@ -66,5 +66,5 @@ export default StyleSheet.create({
     row:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-    }
+    },
 });

@@ -3,8 +3,10 @@ import db from './db.js';
 import bcrypt from 'bcryptjs';
 import cors from 'cors';
 
-const app = express();
-app.use(express.json());
+//NECESSÁRIO ALTERAR
+//É preciso deletar toda a parte de usuários e manter somente a da república
+const app = express(); //uso do express api para facilitar criação de rotas
+app.use(express.json()); //isso indica que as informações serão passadas via JSON
 app.use(cors());
 
 /**Seção do usuário */
@@ -105,14 +107,14 @@ app.delete('/users', async (req, res)=>{
 /**Seção da república */
 //cria rep
 app.post('/reps', async (req, res) => {
-  const { nome, senha, email} = req.body;
+  const { nome, senha, email, insta, desc, tags} = req.body;
 
   try {
     const senhaCriptografada = await bcrypt.hash(senha, 10);
 
     await db.query(
-      'INSERT INTO reps (nome, senha, email) VALUES (?, ?, ?)',
-      [nome, senhaCriptografada, email]
+      'INSERT INTO reps (nome, senha, email, insta, descr, tags) VALUES (?, ?, ?, ?, ?, ?)',
+      [nome, senhaCriptografada, email, insta, desc, JSON.stringify(tags || [])]
     );
     res.status(201).send('República criado com sucesso!');
   } catch (error) {
@@ -163,11 +165,19 @@ app.post('/login_rep', async (req, res) => {
 
 //busca repúblicas
 app.get('/reps', async (req, res) => {
-    const {republica} = req.query;
+    const {id,nome} = req.query;
 
-    if(republica){
+    if(id){
         try {
-            const [rows] = await db.query('SELECT * FROM reps WHERE nome LIKE ?', [`%${republica}%`]);
+            const [rows] = await db.query('SELECT * FROM reps WHERE id LIKE ?', [`%${id}%`]);
+            res.status(200).json(rows);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Erro ao buscar república no banco de dados');
+        }
+    }else if(nome){
+        try {
+            const [rows] = await db.query('SELECT * FROM reps WHERE nome LIKE ?', [`%${nome}%`]);
             res.status(200).json(rows);
         } catch (error) {
             console.error(error);

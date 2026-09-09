@@ -6,12 +6,18 @@ Esse é um aplicativo criado pela comunidade CodeLab voltado a repúblicas, que 
 - 2° Versão: contará também com um cronograma anual de eventos em São Carlos. Como muitos são organizados por repúblicas, nada mais justo do que disponibilizá-los à comunidade universitária em um aplicativo para as reps
 - 3° Versão: será a versão final em que cada rep poderá gerenciar seus núcleos em um único app, tornando mais fácil perceber quais necessidades são mais urgentes nas repúblicas, notificações no celular dos núcleos que devem ser contatados, entre outras possibilidades
 
+## Como rodar o back-end
 
-## COMO USAR O APP
+1) Baixem o nodeJS via terminal na pasta backend-node
+2) Ao mesmo tempo em que rodarem o front-end, via npm ou yarn, rodem o comando "node index.js" em um terminal separado na pasta em que está instalado o node
+
+## Como rodar o front-end
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+
 # Getting Started
+> **Note**: Rode isso na pasta geral do aplicativo, não na mesma em que está o node, mas sim na que vem antes da pasta em que o node está instalado
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
