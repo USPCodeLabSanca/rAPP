@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import Ratings from './Rating_Stars';
 import styles from './component_styles/component_styles';
 import Tag from './tags';
 
 /*
 Cards com informações das repúblicas
+Falta conectar com o banco de dados as tags, localização e preço (se de fato for mantido esse campo)
 */
 
 export default function Card(props:{nome}){
@@ -17,7 +17,6 @@ export default function Card(props:{nome}){
                 <View>
                    <View style = {styles.row}>
                         <Text style = {styles.h1}>{props.nome}</Text>
-                        <Ratings/>
                    </View>
                     <Text style = {styles.h2}>Entrada da arquitetura - São Carlos, SP</Text>
                 </View>
