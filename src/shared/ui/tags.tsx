@@ -1,88 +1,92 @@
-import React, {useState} from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import styles from './component_styles/component_styles';
+import React from 'react';
+import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 
-{/*
-    Componente que serve para filtrar e indicar as características de cada república
-*/}
-
-const tagColors: Record<string, string> = {
-  'Jantar': '#C1BFFF',
-  'Sem trote': '#F7CBFF',
-  'Faz festas': '#FFCBCB',
-  'USP': '#F5FFCB',
-  'UFSCAR': '#FFCBD4',
-  'Almoço': '#FF8C1A',
-  'Mista': '#F5FFCB',
-  'Masculina': '#C1BFFF',
-  'Feminina': '#FFCBCB',
-  'Faxineira': '#957B8C',
+const categoryStyle: Record<string, { bg: string; color: string }> = {
+  refeicao: { bg: '#ffe8d2', color: '#c2410c' },
+  universidade: { bg: '#e7f1ff', color: '#1d4ed8' },
+  convivencia: { bg: '#e5f6ea', color: '#157a3a' },
+  genero: { bg: '#fff1e8', color: '#c2410c' },
 };
 
-const Colors: Record<string, string> = {
-  'Jantar': '#2722CA',
-  'Sem trote': '#A822CA',
-  'Faz festas': '#CA2222',
-  'USP': '#AFAF1A',
-  'UFSCAR': '#CA2222',
-  'Almoço': '#80470E',
-  'Mista': '#AFAF1A',
-  'Masculina': '#2722CA',
-  'Feminina': '#CA2222',
-  'Faxineira': '#3D333A',
-};
-
-const Icons: Record<string, string> = {
-  'Jantar': '☾',
-  'Sem trote': '🧘‍♀️',
-  'Faz festas': '🎊️',
-  'USP': '🐷',
-  'UFSCAR': '🐲',
-  'Almoço': '🍲',
-  'Mista': '👫',
-  'Masculina': '👨‍🦱',
-  'Feminina': '👩',
-  'Faxineira': '🧹',
+const emoji: Record<string, string> = {
+  Mista: '👥',
+  Masculina: '👨',
+  Feminina: '👩',
 };
 
 interface TagProps {
   name: string;
+  categoria?: string;
   selected?: boolean;
   onPress?: () => void;
-  isSelected?: boolean;
+  filter?: boolean;
 }
 
-export default function Tag({ name, selected = false, isSelected: propIsSelected, onPress }: TagProps) {
-  const ActiveBackgroundColor = tagColors[name] || '#E0E0E0';
-  const ActiveColor = Colors[name] || '#900081';
-  const simbol = Icons[name] || '🏷️';
-
-  const [internalSelected, setInternalSelected] = useState(selected);
-  const isSelected = propIsSelected !== undefined ? propIsSelected : internalSelected;
+export default function Tag({ name, categoria, selected = false, onPress, filter = false }: TagProps) {
+  const colors = categoryStyle[categoria ?? ''] || { bg: '#f4efe8', color: '#4A423B' };
+  const icon = filter ? emoji[name] : undefined;
 
   return (
     <TouchableOpacity
       style={[
-        styles.tags,
-        { backgroundColor: isSelected ? ActiveBackgroundColor : 'white' },
+        styles.pill,
+        filter
+          ? selected
+            ? styles.filterOn
+            : styles.filterOff
+          : { backgroundColor: colors.bg, borderColor: colors.bg },
       ]}
-      onPress={()=>{
-          if (onPress) {
-              onPress();
-          } else {
-              setInternalSelected(!internalSelected);
-          }
-      }}
-      activeOpacity={0.7}
+      onPress={onPress}
+      activeOpacity={onPress ? 0.7 : 1}
+      disabled={!onPress}
     >
-      <Text
-        style={{
-          color: isSelected ? ActiveColor : '#666666',
-          fontWeight: isSelected ? 'bold' : 'normal',
-        }}
-      >
-        {simbol} {name}
-      </Text>
+      <View style={styles.row}>
+        {icon ? <Text style={[styles.text, filter && selected ? styles.filterOnText : styles.filterOffText]}>{icon}</Text> : null}
+        <Text
+          style={[
+            styles.text,
+            filter
+              ? selected
+                ? styles.filterOnText
+                : styles.filterOffText
+              : { color: colors.color },
+          ]}
+        >
+          {name}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  pill: {
+    borderRadius: 20,
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  text: {
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  filterOff: {
+    backgroundColor: '#fff',
+    borderColor: '#e4ddd2',
+  },
+  filterOn: {
+    backgroundColor: '#2a2420',
+    borderColor: '#2a2420',
+  },
+  filterOffText: {
+    color: '#2a2420',
+  },
+  filterOnText: {
+    color: '#fff',
+  },
+});

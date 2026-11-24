@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import HomeScreen from '../../features/home/presentation/screens/HomeScreen';
-import FormScreen from '../../features/auth/presentation/screens/FormScreen';
 import InfoRepScreen from '../../features/profile/presentation/screens/InfoRepScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,102 +16,34 @@ export default function AppNavigator() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={({ navigation }) => ({
+            options={{
               title: '',
               headerStyle: {
-                backgroundColor: '#FCEFDA',
+                backgroundColor: '#f3eee6',
                 elevation: 0,
                 shadowOpacity: 0,
                 borderBottomWidth: 1,
-                borderBottomColor: '#E6D8BB',
+                borderBottomColor: '#EAE4D9',
               },
               headerLeft: () => (
-                <Image
-                  source={require('../../assets/logoRapp-removebg-preview.png')}
-                  style={styles.logo}
-                />
+                <View style={styles.headerLeftContainer}>
+                  <Text style={styles.logoTitle}>Rapp.</Text>
+                  <Text style={styles.logoSubtitle}>repúblicas de São Carlos</Text>
+                </View>
               ),
-              headerRight: () => (
-                <TouchableOpacity
-                  style={styles.SignIn}
-                  onPress={() => navigation.navigate('Login' as never)}
-                >
-                  <Text style={styles.SignInText}>Entrar</Text>
-                </TouchableOpacity>
-              ),
-            })}
+            }}
           />
-          <Stack.Screen
-            name="Login"
-            options={{
-              title: '',
-              headerStyle: {
-                backgroundColor: '#FCEFDA',
-                elevation: 0,
-                shadowOpacity: 0,
-                borderBottomWidth: 1,
-                borderBottomColor: '#E6D8BB',
-              },
-            }}
-          >
-            {(props) => <FormScreen {...props} type={0} />}
-          </Stack.Screen>
-          <Stack.Screen
-            name="choice"
-            options={{
-                title: '',
-                headerStyle: {
-                backgroundColor: '#FCEFDA',
-                elevation: 0,
-                shadowOpacity: 0,
-                borderBottomWidth: 1,
-                borderBottomColor: '#E6D8BB',
-              },
-            }}
-          >
-            {(props) => <FormScreen {...props} type={1} />}
-          </Stack.Screen>
-          <Stack.Screen
-              name="RegistroUser"
-              options={{
-                title: '',
-                headerStyle: {
-                  backgroundColor: '#FCEFDA',
-                  elevation: 0,
-                  shadowOpacity: 0,
-                  borderBottomWidth: 1,
-                  borderBottomColor: '#E6D8BB',
-                },
-              }}
-            >
-              {(props) => <FormScreen {...props} type={1} />}
-          </Stack.Screen>
-          <Stack.Screen
-              name="RegistroRep"
-              options={{
-                title: '',
-                headerStyle: {
-                  backgroundColor: '#FCEFDA',
-                  elevation: 0,
-                  shadowOpacity: 0,
-                  borderBottomWidth: 1,
-                  borderBottomColor: '#E6D8BB',
-                },
-              }}
-            >
-              {(props) => <FormScreen {...props} type={2} />}
-          </Stack.Screen>
           <Stack.Screen
             name="Info_rep"
             component={InfoRepScreen}
             options={{
               title: '',
               headerStyle: {
-                backgroundColor: '#FCEFDA',
+                backgroundColor: '#f3eee6',
                 elevation: 0,
                 shadowOpacity: 0,
                 borderBottomWidth: 1,
-                borderBottomColor: '#E6D8BB',
+                borderBottomColor: '#EAE4D9',
               },
             }}
           />
@@ -123,23 +54,20 @@ export default function AppNavigator() {
 }
 
 const styles = StyleSheet.create({
-  logo: {
-    width: 200,
-    height: 60,
-    marginLeft: -60,
+  headerLeftContainer: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 8,
   },
-  SignIn: {
-    height: 45,
-    width: 95,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 20,
-    backgroundColor: '#F26E21',
-  },
-  SignInText: {
-    color: 'white',
-    fontSize: 16,
+  logoTitle: {
+    fontSize: 22,
     fontWeight: 'bold',
-    textAlign: 'center',
+    color: '#e85d2c',
+    letterSpacing: -0.5,
+  },
+  logoSubtitle: {
+    fontSize: 12,
+    color: '#786F68',
+    fontWeight: '400',
   },
 });

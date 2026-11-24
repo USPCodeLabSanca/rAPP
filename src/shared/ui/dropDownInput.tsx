@@ -1,24 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
-import  {RFValue}  from "react-native-responsive-fontsize";
-
-/*
-Menu DropDown - react native não possui um por padrão
-*/
 
 type DropDownProps = {
-  option1: string;
-  option2?: string;
-  option3?: string;
+  options: string[];
   onSelect?: (selectedItem: string, index: number) => void;
   defaultText?: string;
 };
 
-export default function DropDownInput({ option1, option2, option3, onSelect, defaultText }: DropDownProps) {
-  // Array simples com as opções recebidas
-  const options = [option1, option2, option3].filter(Boolean) as string[];
-
+export default function DropDownInput({ options, onSelect, defaultText }: DropDownProps) {
   return (
     <View style={styles.container}>
       <SelectDropdown
@@ -26,18 +16,18 @@ export default function DropDownInput({ option1, option2, option3, onSelect, def
         onSelect={(selectedItem, index) => {
           if (onSelect) onSelect(selectedItem, index);
         }}
-        renderButton={(selectedItem, isOpened) => {
+        renderButton={(selectedItem) => {
           return (
             <View style={styles.dropdownButton}>
               <Text style={styles.dropdownButtonText}>
-                {selectedItem || defaultText}
+                {selectedItem || defaultText}  <Text style={styles.arrowText}>∨</Text>
               </Text>
             </View>
           );
         }}
-        renderItem={(item, index, isSelected) => {
+        renderItem={(item, _index, isSelected) => {
           return (
-            <View style={[styles.dropdownItem, isSelected && { backgroundColor: '#D2D9DF' }]}>
+            <View style={[styles.dropdownItem, isSelected && { backgroundColor: '#f3eee6' }]}>
               <Text style={styles.dropdownItemText}>{item}</Text>
             </View>
           );
@@ -49,9 +39,38 @@ export default function DropDownInput({ option1, option2, option3, onSelect, def
 }
 
 const styles = StyleSheet.create({
-  container: { height: 40, minWidth: '20%', marginRight: 4, marginLeft: 4, alignItems: 'center', borderColor: '#ccc',borderWidth: 1, backgroundColor: 'white',borderRadius: 20,paddingHorizontal: 10,},
-  dropdownButton: { height: '100%', minWidth: '20%' , backgroundColor: 'white', borderRadius: 20, justifyContent: 'center', paddingHorizontal: 12,  borderColor: '#ccc', backgroundColor: 'white',borderRadius: 20,paddingHorizontal: 10, },
-  dropdownButtonText: { fontSize: RFValue(12,680), color: '#666666', borderColor: '#ccc', backgroundColor: 'white',borderRadius: 20,paddingHorizontal: 10, },
-  dropdownItem: { width: '100%', flexDirection: 'row', paddingHorizontal: 12, justifyContent: 'center', alignItems: 'center', height: 50 },
-  dropdownItemText: { fontSize: RFValue(12,680), color: '#666666' },
+  container: {
+    height: 40,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#e4ddd2',
+    borderWidth: 1,
+    borderRadius: 20,
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+  },
+  dropdownButton: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+  },
+  dropdownButtonText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#2a2420',
+  },
+  arrowText: {
+    fontSize: 11,
+    color: '#786F68',
+  },
+  dropdownItem: {
+    width: '100%',
+    paddingHorizontal: 16,
+    justifyContent: 'center',
+    height: 44,
+  },
+  dropdownItemText: {
+    fontSize: 13,
+    color: '#2a2420',
+  },
 });

@@ -1,55 +1,147 @@
-import {StyleSheet, Text} from 'react-native'
-import  {RFValue}  from "react-native-responsive-fontsize";
-
-/*
-Arquivo de estilização da página Home
-*/
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-        container: {
-            flex: 1,
-            backgroundColor: '#FCEFDA',
-            alignItems: 'flex-start',
-            gap: 10,
-          },
-          titulo: {
-            padding: 16,
-            fontSize: 16,
-            fontWeight: 'bold',
-            color: '#fff',
-            textAlign: 'center',
-          },
-          container_cards:{
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              flexWrap: 'wrap',
-              flex: 1,
-          },
-          input: {
-              height: 40,
-              flex: 1,
-              minWidth: 100,
-              borderColor: '#ccc',
-              backgroundColor: 'white',
-              borderWidth: 1,
-              borderRadius: 20,
-              paddingHorizontal: 10,
-              fontSize: RFValue(11, 680),
-              marginHorizontal: 2,
-          },
-          choices:{
-              padding: 10,
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-              alignItems: 'center',
-              borderWidth: 1,
-              borderColor: '#E6D8BB',
-              width: '100%',
-          },
-          container_tags:{
-              paddingHorizontal: 10,
-              alignItems: 'flex-start',
-              gap: 8,
-          }
-    })
+  screenScroll: {
+    flex: 1,
+    backgroundColor: '#f3eee6',
+  },
+  container: {
+    paddingBottom: 40,
+  },
+  searchBarRow: {
+    backgroundColor: '#f3eee6',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    gap: 10,
+  },
+  input: {
+    height: 46,
+    borderColor: '#e4ddd2',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderRadius: 23,
+    paddingHorizontal: 16,
+    fontSize: 15,
+    color: '#221C18',
+  },
+  filters: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingVertical: 4,
+    paddingRight: 8,
+  },
+  clearPill: {
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#2a2420',
+    backgroundColor: '#2a2420',
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  clearPillOff: {
+    backgroundColor: '#fff',
+    borderColor: '#e4ddd2',
+  },
+  clearText: {
+    color: '#fff',
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  clearTextOff: {
+    color: '#2a2420',
+  },
+  heroSection: {
+    paddingHorizontal: 20,
+    paddingTop: 18,
+    paddingBottom: 8,
+  },
+  heroCategory: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#e85d2c',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+    marginBottom: 6,
+  },
+  heroTitle: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: '#221C18',
+    lineHeight: 38,
+    marginBottom: 8,
+  },
+  heroHighlight: {
+    color: '#e85d2c',
+  },
+  heroSubtitle: {
+    fontSize: 15,
+    color: '#6f675f',
+  },
+  metrics: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+  },
+  metric: {
+    width: '48%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    borderColor: '#e7e0d6',
+  },
+  metricValue: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#221C18',
+  },
+  metricLabel: {
+    marginTop: 2,
+    fontSize: 12,
+    color: '#6f675f',
+  },
+  status: {
+    paddingHorizontal: 20,
+    paddingVertical: 28,
+    color: '#6f675f',
+    fontSize: 15,
+  },
+  error: {
+    marginHorizontal: 16,
+    marginTop: 12,
+    backgroundColor: '#fff1f2',
+    color: '#9f1239',
+    borderRadius: 12,
+    padding: 12,
+    overflow: 'hidden',
+  },
+  empty: {
+    marginHorizontal: 16,
+    marginTop: 12,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: '#e7e0d6',
+  },
+  emptyTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#221C18',
+    marginBottom: 6,
+  },
+  emptyText: {
+    color: '#6f675f',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  container_cards: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    gap: 16,
+  },
+});

@@ -8,8 +8,11 @@ Esse é um aplicativo criado pela comunidade CodeLab voltado a repúblicas, que 
 
 ## Como rodar o back-end
 
-1) Baixem o nodeJS via terminal na pasta backend-node
-2) Ao mesmo tempo em que rodarem o front-end, via npm ou yarn, rodem o comando "node index.js" em um terminal separado na pasta em que está instalado o node
+A API do visitante é NestJS, na pasta `backend`, e usa o mesmo PostgreSQL do painel (`postgresql://rapp:rapp@127.0.0.1:5433/rapp`). Não há banco MySQL neste projeto. Criar, editar e excluir casas continua no painel.
+
+1) Suba o PostgreSQL do painel na porta 5433.
+2) Em `backend`, rode `npm install` e depois `npm run start:dev`.
+3) A API fica em `http://127.0.0.1:3002/api` (a 3000 já está ocupada nesta máquina e a 3001 é a do painel). O emulador Android usa `http://10.0.2.2:3002/api`. Fotos do MinIO são reescritas para `http://10.0.2.2:9000`; em outro aparelho defina `MOBILE_ASSET_ORIGIN`.
 
 ## Como rodar o front-end
 

@@ -1,70 +1,86 @@
-import {StyleSheet, Text} from 'react-native';
-import  {RFValue}  from "react-native-responsive-fontsize";
-
-/*
-Arquivo de estilização dos componentes universais
-*/
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    card:{
-        maxWidth: '90%',
-        minHeight: 300,
-        backgroundColor: 'white',
-        borderRadius: 20,
-        //overflow: 'hidden',
-        margin: 16,
-        padding: 12,
-        justifyContent: 'space-around',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-    },
-    repImage:{
-        flex: 1,
-        maxWidth: '100%',
-        maxHeight: 150,
-        borderRadius: 20,
-    },
-    h1:{
-        fontSize: RFValue(12,680),
-        fontWeight: 'bold',
-        color: '#666666',
-    },
-    h2:{
-        fontSize: RFValue(9,680),
-        fontWeight: 'light',
-        color: '#666666',
-    },
-    container_info_card:{
-        margin: 6,
-        alignItems: 'flex-start',
-        justifyContent: 'space-around',
-        minWidth: '100%',
-        gap: 8,
-        flex: 1,
-    },
-    ratings:{
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    tags:{
-        backgroundColor: 'white',
-        borderRadius: 20,
-        borderWidth: 1,
-        borderColor: '#E6D8BB',
-        paddingHorizontal: 12,
-        paddingBottom: 8,
-        paddingTop: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    tag_styles:{
-        flexDirection: 'row',
-        gap: 6,
-        alignItems: 'flex-start',
-    },
-    row:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
+  cardContainer: {
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: 24,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#e7e0d6',
+  },
+  imageWrapper: {
+    position: 'relative',
+    width: '100%',
+    height: 190,
+    backgroundColor: '#efe6da',
+  },
+  repImage: {
+    width: '100%',
+    height: '100%',
+  },
+  fallback: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e85d2c',
+  },
+  fallbackLetter: {
+    color: '#fff',
+    fontSize: 64,
+    fontWeight: '800',
+  },
+  tipoBadge: {
+    position: 'absolute',
+    top: 12,
+    left: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 252, 248, 0.94)',
+  },
+  tipoMista: { backgroundColor: 'rgba(255, 252, 248, 0.94)' },
+  tipoFeminina: { backgroundColor: '#fde7f3' },
+  tipoMasculina: { backgroundColor: '#e7f0ff' },
+  tipoBadgeText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#2a2420',
+  },
+  tipoTextFeminina: { color: '#9d174d' },
+  tipoTextMasculina: { color: '#1d4e89' },
+  cardContent: {
+    padding: 16,
+    gap: 8,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: '#221C18',
+  },
+  cardLocation: {
+    fontSize: 14,
+    color: '#6f675f',
+  },
+  tagsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  bottomRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    marginTop: 4,
+  },
+  priceValue: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#e85d2c',
+  },
+  pricePeriod: {
+    fontSize: 14,
+    color: '#6f675f',
+    fontWeight: '500',
+  },
 });
