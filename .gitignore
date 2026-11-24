@@ -66,6 +66,10 @@ yarn-error.log
 # testing
 /coverage
 
+# API Nest do visitante
+backend/dist
+backend/.env
+
 # Yarn
 .yarn/*
 !.yarn/patches

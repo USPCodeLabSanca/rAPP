@@ -1,33 +1,67 @@
-import {StyleSheet, Text} from 'react-native'
-import  {RFValue}  from "react-native-responsive-fontsize";
-
-/*
-Arquivo de estilização da página Info_rep
-*/
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: { flex: 1, backgroundColor: '#FCEFDA' },
-    loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' },
-    loadingText: { fontSize: 16, color: '#666' },
-
-    bannerImage: { width: '100%', height: 240, resizeMode: 'cover' },
-    contentContainer: { padding: 20, borderTopLeftRadius: 24, borderTopRightRadius: 24, marginTop: -20, backgroundColor: '#FCEFDA' },
-
-    title: { fontSize: 26, fontWeight: 'bold', color: '#333' },
-    location: { fontSize: 14, color: '#666', marginTop: 4 },
-
-    divider: { height: 1, backgroundColor: '#D4D4D4', marginVertical: 18 },
-
-    sectionTitle: { fontSize: 18, fontWeight: 'bold', color: '#333', marginBottom: 12 },
-    tagsContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-    descriptionText: { fontSize: 15, color: '#555', lineHeight: 22 },
-
-    contactButton: {
-      backgroundColor: '#F26E21',
-      paddingVertical: 14,
-      borderRadius: 25,
-      alignItems: 'center',
-      marginTop: 24,
-    },
-    contactButtonText: { color: '#FFF', fontSize: 16, fontWeight: 'bold' },
-})
+  container: { flex: 1, backgroundColor: '#f3eee6' },
+  loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f3eee6', padding: 24 },
+  loadingText: { fontSize: 16, color: '#6f675f', textAlign: 'center' },
+  eyebrow: {
+    color: '#e85d2c',
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 1.1,
+    textTransform: 'uppercase',
+    marginBottom: 6,
+  },
+  title: { fontSize: 30, fontWeight: '800', color: '#221C18' },
+  location: { fontSize: 15, color: '#6f675f', marginTop: 6 },
+  content: { padding: 20, gap: 14 },
+  gallery: { backgroundColor: '#efe6da', minHeight: 220 },
+  bannerImage: { width: '100%', height: 240 },
+  fallback: { height: 240, alignItems: 'center', justifyContent: 'center', backgroundColor: '#e85d2c' },
+  fallbackLetter: { color: '#fff', fontSize: 72, fontWeight: '800' },
+  thumbs: { flexDirection: 'row', gap: 8, padding: 12 },
+  thumb: { width: 72, height: 72, borderRadius: 12, overflow: 'hidden', borderWidth: 2, borderColor: 'transparent' },
+  thumbOn: { borderColor: '#e85d2c' },
+  thumbImage: { width: '100%', height: '100%' },
+  panel: {
+    backgroundColor: '#fff',
+    borderRadius: 24,
+    padding: 18,
+    gap: 12,
+    borderWidth: 1,
+    borderColor: '#e7e0d6',
+  },
+  price: { fontSize: 28, fontWeight: '800', color: '#e85d2c' },
+  pricePeriod: { fontSize: 16, color: '#6f675f', fontWeight: '500' },
+  tagsContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  descriptionText: { fontSize: 16, color: '#3f3832', lineHeight: 24 },
+  metaLabel: { fontSize: 12, color: '#8a8178', fontWeight: '700', textTransform: 'uppercase' },
+  metaValue: { fontSize: 16, color: '#221C18', marginTop: 2 },
+  contactButton: {
+    backgroundColor: '#128c7e',
+    paddingVertical: 14,
+    borderRadius: 16,
+    alignItems: 'center',
+  },
+  contactButtonText: { color: '#FFF', fontSize: 16, fontWeight: '700' },
+  ghostButton: {
+    borderWidth: 1,
+    borderColor: '#e4ddd2',
+    paddingVertical: 14,
+    borderRadius: 16,
+    alignItems: 'center',
+  },
+  ghostButtonText: { color: '#221C18', fontSize: 16, fontWeight: '700' },
+  sectionTitle: { fontSize: 20, fontWeight: '800', color: '#221C18' },
+  hint: { color: '#6f675f', fontSize: 13, lineHeight: 18 },
+  pointRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 12,
+    paddingVertical: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#f0ebe3',
+  },
+  pointName: { flex: 1, color: '#221C18', fontSize: 15 },
+  pointDistance: { color: '#e85d2c', fontWeight: '700' },
+});
